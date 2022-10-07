@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  MusicApp
 //
-//  Created by 모상현 on 2022/10/05.
+//  Created by Allen H on 2022/04/20.
 //
 
 import UIKit
@@ -10,7 +10,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

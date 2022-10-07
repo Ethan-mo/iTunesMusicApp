@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,6 +39,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="99.776785714285708"/>
+        </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="rhH-yy-19j">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultViewController" id="emg-Pj-v16" customClass="SearchResultViewController" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CF5-pL-9Vp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a6A-12-cH7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ogk-0Y-TQh">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MusicCollectionViewCell" id="CrI-1P-ikp" customClass="MusicCollectionViewCell" customModule="MusicApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GOU-kc-5HC" customClass="MusicCollectionViewCell" customModule="MusicApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FbU-0Z-rfk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="FbU-0Z-rfk" secondAttribute="trailing" id="5Me-eU-mnF"/>
+                                                <constraint firstItem="FbU-0Z-rfk" firstAttribute="leading" secondItem="GOU-kc-5HC" secondAttribute="leading" id="ei3-SA-di6"/>
+                                                <constraint firstAttribute="bottom" secondItem="FbU-0Z-rfk" secondAttribute="bottom" id="iU1-rf-xCV"/>
+                                                <constraint firstItem="FbU-0Z-rfk" firstAttribute="top" secondItem="GOU-kc-5HC" secondAttribute="top" id="ixE-yZ-Vda"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="mainImageView" destination="FbU-0Z-rfk" id="4tP-qj-0Lc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Z0p-Ke-qiT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Z0p-Ke-qiT" firstAttribute="bottom" secondItem="a6A-12-cH7" secondAttribute="bottom" id="3yT-o5-hov"/>
+                            <constraint firstAttribute="trailing" secondItem="a6A-12-cH7" secondAttribute="trailing" id="4dS-sV-9Bv"/>
+                            <constraint firstItem="a6A-12-cH7" firstAttribute="top" secondItem="Z0p-Ke-qiT" secondAttribute="top" id="ZyF-d2-yCh"/>
+                            <constraint firstItem="a6A-12-cH7" firstAttribute="leading" secondItem="Z0p-Ke-qiT" secondAttribute="leading" id="yaM-Nh-PCo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="a6A-12-cH7" id="Aeh-2J-anl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KT8-8K-WsX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d6i-mQ-VJj">

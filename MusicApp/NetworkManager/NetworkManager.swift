@@ -26,10 +26,14 @@ final class NetworkManager{
     func fetchMusic(searchTerm: String, completion: @escaping NetworkCompletion){
         let urlString = "\(MusicApi.requestUrl)\(MusicApi.mediaParam)&term=\(searchTerm)"
         print(urlString)
+        
+        performRequest(with: urlString) { result in
+            completion(result)
+        }
     }
     
     ///MARK: - 실질적으로 서버에 요청하는 메서드
-    private func performReques(with urlString: String, completion: @escaping NetworkCompletion) {
+    private func performRequest(with urlString: String, completion: @escaping NetworkCompletion) {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { data, response, error in
@@ -37,10 +41,12 @@ final class NetworkManager{
             if error != nil{
                 print(error!)
                 completion(.failure(.networkingError))
+                return
             }
             // Networking작업 중, Data와 관련하여 발생하는 에러는, dataError를 출력한다.
             guard let safeData = data else{
                 completion(.failure(.dataError))
+                return
             }
             if let musics = self.parseJSON(safeData){
                 print("불러온 Data를 분석하는 메서드를 실행하였습니다.")
